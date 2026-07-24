@@ -3,3 +3,17 @@
 *[hidden]{display:none!important}
 .tool-button,.settings-toggle{display:inline-flex;align-items:center;justify-content:center;gap:7px}.ui-icon,.icon svg{width:16px;height:16px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.settings-toggle__icon{transition:transform 150ms var(--ease-out)}.settings-toggle[aria-expanded="true"] .settings-toggle__icon{transform:rotate(180deg)}.info-row .icon{width:14px;height:14px;display:inline-flex;align-items:center;justify-content:center}.info-row .icon svg{width:14px;height:14px}.ops-card>.icon svg,.schedule-head-left .icon svg{display:block}
 .page2-title{margin-bottom:4mm}.policy-box{overflow:visible;border-style:solid;border-left:3px solid var(--gold);background:#fbf9f2;color:#4f4b43;font-size:8.2pt;line-height:1.34;padding:7mm}.page2-footer{margin-top:4mm}
+.policy-box{padding:5.5mm 6mm 6mm;border-left-width:4px;font-size:8pt;line-height:1.38}
+.policy-content{display:grid;gap:3.5mm}
+.policy-section{display:grid;gap:1.5mm;break-inside:avoid}
+.policy-section h3{margin:0;padding-bottom:1.2mm;border-bottom:1px solid #e3dbc5;color:var(--navy);font-size:7.3pt;font-weight:800;letter-spacing:.09em;line-height:1.2;text-transform:uppercase}
+.policy-section--intro h3{color:var(--gold);border-bottom:0;padding-bottom:0}
+.policy-section p{margin:0;color:#4f4b43}
+.policy-list{display:grid;gap:1mm;margin:0;padding:0 0 0 4.5mm}
+.policy-list li{padding-left:1mm}
+.policy-table{width:100%;border-collapse:separate;border-spacing:0;margin:0;border:1px solid #e3dbc5;border-radius:6px;overflow:hidden;background:#fffdf8;font-size:7.8pt}
+.policy-table th,.policy-table td{padding:1.7mm 2.5mm;text-align:left;border-bottom:1px solid #eee8d8}
+.policy-table th{background:#f2ecdc;color:var(--navy);font-size:7.1pt;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.policy-table td:last-child{width:25%;color:var(--navy);font-weight:800;text-align:right}
+.policy-table tr:last-child td{border-bottom:0}
+@media print{.policy-box{padding:5mm 5.5mm}.policy-content{gap:2.8mm}.policy-section{gap:1.1mm}.policy-table th,.policy-table td{padding:1.4mm 2mm}}
