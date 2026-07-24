@@ -42,7 +42,7 @@
     var ids = getIds().map(cleanId).filter(function (id) { return /^[0-9a-f-]{36}$/i.test(id); });
     if (!ids.length) throw new Error('Nenhum serviço selecionado.');
     var fields = '$select=cr40f_reservadeveculosid,cr40f_id,cr40f_dataehorriodesada,cr40f_trajeto,cr40f_obsdeoperao,cr40f_email,cr40f_passageirosetelefonedecontato,cr40f_tipodeveiculo,_cr40f_cliente_value,_cr40f_solicitante_value,_cr40f_passageiro1_value,_cr40f_passageiro2_value,_cr40f_passageiro3_value,_cr40f_passageiro4_value,_cr40f_veiculo_value';
-    var records = await Promise.all(ids.map(function (id) { return api.WebApi.retrieveRecord('cr40f_reservadeveiculos', id, '?' + fields); }));
+    var records = await Promise.all(ids.map(function (id) { return api.WebApi.retrieveRecord('cr40f_reservadeveculos', id, '?' + fields); }));
     var first = records[0];
     var passengers = [1,2,3,4].map(function (index) { return lookupName(first, 'cr40f_passageiro' + index); }).filter(Boolean);
     if (!passengers.length) passengers = ['—'];
