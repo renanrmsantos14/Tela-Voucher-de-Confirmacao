@@ -44,20 +44,27 @@
           </div>
           <button id="btn-settings" class="settings-toggle" type="button" aria-expanded="true" aria-controls="settingsForm"><span class="settings-toggle__label">Ocultar</span><svg class="ui-icon settings-toggle__icon" aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg></button>
         </div>
-        <form id="settingsForm" class="settings-form">
+        <form id="settingsForm" class="settings-form" aria-describedby="settingsStatus">
+          <div class="settings-section-title">CONTATOS OPERACIONAIS</div>
           <label>Telefones de suporte<input name="supportPhones" type="text" autocomplete="off"></label>
           <label>Operação<input name="opsContact" type="text" autocomplete="off"></label>
           <label>Comercial<input name="commercialContact" type="text" autocomplete="off"></label>
           <label>Financeiro<input name="financeContact" type="text" autocomplete="off"></label>
           <label>Concierge<input name="conciergeContact" type="text" autocomplete="off"></label>
+          <div class="settings-section-title">CAPACIDADE DO VEÍCULO</div>
           <div class="settings-grid">
             <label>Passageiros<input name="passengerCapacity" type="text" autocomplete="off"></label>
             <label>Bagagens<input name="luggageCapacity" type="text" autocomplete="off"></label>
           </div>
+          <div class="settings-section-title">ORIENTAÇÕES DO ATENDIMENTO</div>
           <label>Encontro com o motorista<textarea name="meetDriverText" rows="4"></textarea></label>
           <label>Em caso de desencontro<textarea name="mismatchText" rows="4"></textarea></label>
           <label>Política de cancelamento<textarea name="cancelPolicy" rows="7"></textarea></label>
           <p class="settings-hint" role="status">Configuração vinculada ao usuário atual.</p>
+          <div class="settings-actions">
+            <button id="btn-reset-settings" class="settings-reset" type="button">Restaurar padrão</button>
+            <span id="settingsStatus" class="settings-status" role="status" aria-live="polite">Salvo neste navegador.</span>
+          </div>
         </form>
       </aside>
 

@@ -17,3 +17,10 @@
 .policy-table td:last-child{width:25%;color:var(--navy);font-weight:800;text-align:right}
 .policy-table tr:last-child td{border-bottom:0}
 @media print{.policy-box{padding:5mm 5.5mm}.policy-content{gap:2.8mm}.policy-section{gap:1.1mm}.policy-table th,.policy-table td{padding:1.4mm 2mm}}
+ .settings-section-title{margin-top:8px;padding-top:10px;border-top:1px solid var(--line);color:var(--slate);font-size:10px;font-weight:800;letter-spacing:.08em}
+ .settings-section-title:first-child{margin-top:0;padding-top:0;border-top:0}
+ .settings-actions{display:grid;gap:6px;padding-top:4px}
+ .settings-reset{min-height:32px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--slate);font-size:11px;font-weight:800;cursor:pointer}
+ .settings-reset:hover{background:var(--blue-soft);color:var(--navy)}
+ .settings-reset:focus-visible{outline:0;border-color:#6c91e8;box-shadow:0 0 0 3px #2159d21c}
+ .settings-status{margin:0;font-size:10px;color:var(--slate);line-height:1.4}
