@@ -1,7 +1,7 @@
 {
   "name": "cr40f-voucher-confirmacao",
   "private": true,
-  "version": "0.1.6",
+  "version": "0.1.7",
   "scripts": {
     "push": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-webresources.ps1 -EnvironmentUrl https://org23b93544.crm2.dynamics.com -SolutionUniqueName appbetinhos"
   }
