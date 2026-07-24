@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Voucher — Betinhos Executive Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./cr40f_VoucherConfirmacao.css?v=0.1.0">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-toolbar" aria-label="Ações do voucher">
+      <div class="toolbar-context">
+        <span class="toolbar-eyebrow">BETINHOS</span>
+        <span id="toolbarStatus">Carregando dados…</span>
+      </div>
+      <div class="toolbar-actions">
+        <button id="btn-pt" class="tool-button is-active" type="button">Português</button>
+        <button id="btn-en" class="tool-button" type="button">English</button>
+        <button id="btn-print" class="tool-button tool-button--primary" type="button">Imprimir / PDF</button>
+        <button id="btn-close" class="tool-button tool-button--close" type="button" aria-label="Fechar voucher">Fechar</button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="settings-panel" aria-label="Configuração do voucher">
+        <div class="settings-heading">
+          <div>
+            <span class="eyebrow">CONFIGURAÇÃO LOCAL</span>
+            <h1>Dados complementares</h1>
+            <p>Alterações ficam salvas apenas neste navegador.</p>
+          </div>
+          <button id="btn-settings" class="settings-toggle" type="button" aria-expanded="true" aria-controls="settingsForm">Ocultar</button>
+        </div>
+        <form id="settingsForm" class="settings-form">
+          <label>Telefones de suporte<input name="supportPhones" type="text" autocomplete="off"></label>
+          <label>Operação<input name="opsContact" type="text" autocomplete="off"></label>
+          <label>Comercial<input name="commercialContact" type="text" autocomplete="off"></label>
+          <label>Financeiro<input name="financeContact" type="text" autocomplete="off"></label>
+          <label>Concierge<input name="conciergeContact" type="text" autocomplete="off"></label>
+          <div class="settings-grid">
+            <label>Passageiros<input name="passengerCapacity" type="text" autocomplete="off"></label>
+            <label>Bagagens<input name="luggageCapacity" type="text" autocomplete="off"></label>
+          </div>
+          <label>Encontro com o motorista<textarea name="meetDriverText" rows="4"></textarea></label>
+          <label>Em caso de desencontro<textarea name="mismatchText" rows="4"></textarea></label>
+          <label>Política de cancelamento<textarea name="cancelPolicy" rows="7"></textarea></label>
+          <p class="settings-hint" role="status">Configuração vinculada ao usuário atual.</p>
+        </form>
+      </aside>
+
+      <main class="preview-area" aria-label="Prévia do voucher">
+        <div id="loadingState" class="state-card" role="status">Carregando serviços selecionados…</div>
+        <div id="errorState" class="state-card state-card--error" role="alert" hidden></div>
+        <div class="desk" id="voucherPreview" hidden>
+          <div class="sheet" id="sheet1">
+            <div class="header">
+              <img src="./cr40f_VoucherConfirmacaoLogo.png" alt="Betinhos Executive Service">
+              <div class="header-right">
+                <div class="confirm-title" data-t="confirmExec"></div>
+                <div class="voucher-number" id="voucherNumber"></div>
+                <div class="issued-at"><span data-t="issuedLabel"></span>: <span id="issuedAt"></span></div>
+              </div>
+            </div>
+            <div class="sheet-body">
+              <div class="cards-row">
+                <div class="card">
+                  <div class="passenger-name" id="passengerNames"></div>
+                  <div class="divider"></div>
+                  <div id="passengerInfoRows"></div>
+                </div>
+                <div class="vehicle-stack">
+                  <div class="vehicle-card">
+                    <div class="vehicle-card-title" data-t="vehicleCardTitle"></div>
+                    <div id="vehicleInfoRows"></div>
+                  </div>
+                  <div class="support-card" id="supportInfoRows"></div>
+                </div>
+              </div>
+              <div class="schedule-head">
+                <div class="schedule-head-left"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"></rect><line x1="4" y1="10" x2="20" y2="10"></line><line x1="8" y1="3" x2="8" y2="7"></line><line x1="16" y1="3" x2="16" y2="7"></line></svg></span><span class="schedule-title" data-t="scheduleTitle"></span></div>
+                <span class="tz-caption" data-t="timezoneCaption"></span>
+              </div>
+              <table class="schedule">
+                <colgroup><col class="c-os"><col class="c-dt"><col class="c-route"><col class="c-flight"></colgroup>
+                <thead><tr><td data-t="colOS"></td><td data-t="colDateTime"></td><td data-t="colRoute"></td><td data-t="colFlight"></td></tr></thead>
+                <tbody id="scheduleBody"></tbody>
+              </table>
+              <div class="ops-row">
+                <div class="ops-card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="2"></rect><path d="M9 8V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><line x1="4" y1="13" x2="20" y2="13"></line></svg></span><div><div class="ops-title" data-t="meetDriverTitle"></div><div class="ops-text" id="meetDriverText"></div></div></div>
+                <div class="ops-card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect></svg></span><div><div class="ops-title" data-t="mismatchTitle"></div><div class="ops-text" id="mismatchText"></div><div class="concierge-line"><span data-t="conciergeLabel"></span> <span id="conciergeContact"></span></div></div></div>
+              </div>
+              <div class="footer"><div class="footer-left"><div data-t="footerLine1"></div><div class="strong" data-t="footerLine2"></div><div class="muted" data-t="footerLine3"></div></div><div class="footer-right"><div data-t="footerSite"></div><div><span data-t="pageLabel"></span> 1/2</div></div></div>
+            </div>
+          </div>
+          <div class="sheet" id="sheet2">
+            <div class="header"><img src="./cr40f_VoucherConfirmacaoLogo.png" alt="Betinhos Executive Service"><div class="header-right"><div class="confirm-title" data-t="confirmExec"></div><div class="voucher-number" id="voucherNumber2"></div><div class="issued-at"><span data-t="issuedLabel"></span>: <span id="issuedAt2"></span></div></div></div>
+            <div class="sheet-body"><div class="page2-title" data-t="cancelPolicyTitle"></div><div class="policy-box" id="cancelPolicy"></div><div class="page2-footer"><div>Betinhos Executive Service — <span data-t="footerSite"></span></div><div><span data-t="pageLabel"></span> 2/2</div></div></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="version-label">v0.1.0 24/07/2026</div>
+  </div>
+  <script src="./cr40f_VoucherConfirmacao.js?v=0.1.0"></script>
+</body>
+</html>
